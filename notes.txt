@@ -1,0 +1,219 @@
+ view_doctors
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>View Doctors</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.d_id }}</td>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.age }}</td>
+                    <td>{{ doctor.contact }}</td>
+                    <td>{{ doctor.email }}</td>
+                    <!-- Add other fields as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>View Patients</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.p_id }}</td>
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.contact }}</td>
+                    <td>{{ patient.email }}</td>
+                    <!-- Add other fields as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+view patients
+<!--&lt;!&ndash; hms/templates/view_doctors.html &ndash;&gt;-->
+
+<!--{% extends 'base.html' %}-->
+
+<!--{% block content %}-->
+<!--<style>-->
+<!--    h2 {-->
+<!--        text-align: center;-->
+<!--        color: #333;-->
+<!--    }-->
+
+<!--    table {-->
+<!--        width: 100%;-->
+<!--        border-collapse: collapse;-->
+<!--        margin-top: 20px;-->
+<!--    }-->
+
+<!--    th, td {-->
+<!--        border: 1px solid #ddd;-->
+<!--        padding: 8px;-->
+<!--        text-align: left;-->
+<!--    }-->
+
+<!--    th {-->
+<!--        background-color: #3498db;-->
+<!--        color: white;-->
+<!--    }-->
+
+<!--    tr:nth-child(even) {-->
+<!--        background-color: #f9f9f9;-->
+<!--    }-->
+<!--</style>-->
+
+<!--<h2>View Patients</h2>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Age</th>-->
+<!--            <th>Contact</th>-->
+<!--            <th>Email</th>-->
+<!--            <th>Doctor</th>-->
+<!--            &lt;!&ndash; Add other fields as needed &ndash;&gt;-->
+<!--        </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--        {% for patient in patients %}-->
+<!--            <tr>-->
+<!--                <td>{{ patient.p_id }}</td>-->
+<!--                <td>{{ patient.name }}</td>-->
+<!--                <td>{{ patient.age }}</td>-->
+<!--                <td>{{ patient.contact }}</td>-->
+<!--                <td>{{ patient.email }}</td>-->
+<!--                <td>{{patient.doctor}}</td>-->
+<!--                &lt;!&ndash; Add other fields as needed &ndash;&gt;-->
+<!--            </tr>-->
+<!--        {% endfor %}-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--{% endblock %}-->
+
+<!-- hms/templates/view_doctors.html -->
+
+
+//dashboard with cyan and black
+<!-- hms/templates/dashboard.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #66fcf1;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #66fcf1;
+        }
+
+        a:hover {
+            border: 2px solid #66fcf1;
+            color: #45a29e;
+        }
+
+        button {
+            background-color: #1f2833;
+            color: #c5c6c7;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a29e;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Dashboard</h1>
+
+    <div>
+        <h2>Doctors</h2>
+        <a href="{% url 'view_doctors' %}"><button>View Doctors</button></a>
+        <a href="{% url 'create_doctors' %}"><button>Add Doctors</button></a>
+        <a href="{% url 'delete_doctors' %}"><button>Delete Doctors</button></a>
+        <a href="{% url 'get_doctor_id' %}"><button>Update Doctors</button></a>
+    </div>
+
+    <div>
+        <h2>Patients</h2>
+        <a href="{% url 'view_patients' %}"><button>View Patients</button></a>
+        <a href="{% url 'create_patients' %}"><button>Add Patients</button></a>
+        <a href="{% url 'delete_patients' %}"><button>Delete Patients</button></a>
+        <a href="{% url 'get_patient_id' %}"><button>Update Patients</button></a>
+    </div>
+
+</body>
+</html>
+
+
+// themes
+0b0c10
+1f2833
+c5c6c7
+66fcf1
+45a29e
+
+
+//themes2
+05386b
+379683
+5cdb95
+8ee4af
+edf5e1

@@ -1,0 +1,69 @@
+<!-- hms/templates/view_doctors.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #0b0c10; /* Dark color */
+        color: #c5c6c7; /* Light gray color for text */
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #c5c6c7; /* Light gray color */
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #1f2833; /* Dark blue color */
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #1f2833; /* Turquoise color */
+    }
+    .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #45a29e; /* Teal color */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+
+<h2>View Departments</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <!-- Add other fields as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for department in departments %}
+            <tr>
+                <td>{{ department.id }}</td>
+                <td>{{ department.name }}</td>
+                
+                <!-- Add other fields as needed -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}

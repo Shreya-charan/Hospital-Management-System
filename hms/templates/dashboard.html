@@ -1,0 +1,84 @@
+<!-- hms/templates/dashboard.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #66fcf1;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #66fcf1;
+        }
+
+        a:hover {
+            border: 2px solid #66fcf1;
+            color: #45a29e;
+        }
+
+        button {
+            background-color: #1f2833;
+            color: #66fcf1;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a29e;
+            color: #1f2833
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Dashboard</h1>
+
+    <div>
+        <h2>Doctors</h2>
+        <a href="{% url 'view_doctors' %}"><button>View Doctors</button></a>
+        <a href="{% url 'create_doctors' %}"><button>Add Doctors</button></a>
+        <a href="{% url 'delete_doctors' %}"><button>Delete Doctors</button></a>
+        <a href="{% url 'get_doctor_id' %}"><button>Update Doctors</button></a>
+    </div>
+
+    <div>
+        <h2>Patients</h2>
+        <a href="{% url 'view_patients' %}"><button>View Patients</button></a>
+        <a href="{% url 'create_patients' %}"><button>Add Patients</button></a>
+        <a href="{% url 'delete_patients' %}"><button>Delete Patients</button></a>
+        <a href="{% url 'get_patient_id' %}"><button>Update Patients</button></a>
+    </div>
+
+    <div>
+        <h2>Departments</h2>
+        <a href="{% url 'view_departments' %}"><button>View Departments</button></a>
+        <a href="{% url 'create_departments' %}"><button>Add Departments</button></a>
+        <a href="{% url 'delete_department' %}"><button>Delete Department</button></a>
+    </div>
+
+</body>
+</html>
+

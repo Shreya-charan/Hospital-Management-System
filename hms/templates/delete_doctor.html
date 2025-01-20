@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #0b0c10;
+        color: #c5c6c7;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h2 {
+        color: #66fcf1;
+        margin-bottom: 20px;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #1f2833;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #c5c6c7;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        background-color: #1f2833;
+        color: #c5c6c7;
+        border: 1px solid #66fcf1;
+        box-sizing: border-box;
+    }
+
+    button,
+    .back-button {
+        width: 48%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    button {
+        background-color: #45a29e;
+        color: #0b0c10;
+    }
+
+    button:hover,
+    .back-button:hover {
+        background-color: #66fcf1;
+        color: #0b0c10;
+    }
+
+    .back-button {
+        background-color: #45a29e;
+        color: #0b0c10;
+        margin-left: 4%;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<h2>Delete Doctor</h2>
+<p>Enter the Doctor ID to delete:</p>
+
+<!-- Form for entering the doctor_id -->
+<form method="post" action="">
+    {% csrf_token %} <!-- Include the CSRF token here -->
+
+    <!-- Text input for d_id -->
+    <label for="d_id">Doctor ID:</label>
+    <input type="text" id="d_id" name="d_id" required>
+
+    <!-- Button container for centering -->
+    <div class="button-container">
+        <!-- Submit button -->
+        <button type="submit">Delete Doctor</button>
+        <a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+    </div>
+</form>
+{% endblock %}

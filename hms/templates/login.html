@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <style>
+        body {
+            background-color: #000000; /* Light grayish-white background color */
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0); /* White background color for the form */
+            padding: 20px;
+            border: 1px solid #e0e0e0; /* Light gray border color */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for box-shadow */
+        }
+
+        form:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Slightly darker shadow on hover */
+        }
+
+        button {
+            background: linear-gradient(to right, #6f6f6f, #494949); /* Black to gray gradient for the button */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out; /* Smooth transition for background */
+            width: 100%; /* Take up 100% width within the form */
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #494949, #6f6f6f); /* Reversed gradient on hover */
+        }
+
+        p {
+            color: #ffffff; /* Red color for error messages */
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" action="{% url 'user_login' %}">
+        
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Login</button>
+    </form>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>

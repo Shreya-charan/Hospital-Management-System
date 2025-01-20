@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #0b0c10; /* Dark color */
+        color: #c5c6c7; /* Light gray color for text */
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #c5c6c7; /* Light gray color */
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #1f2833; /* Dark blue color */
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #1f2833; /* Turquoise color */
+    }
+    .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #45a29e; /* Teal color */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+
+<h2>View Patients</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Doctor</th>
+            <!-- Add other fields as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patients %}
+            <tr>
+                <td>{{ patient.p_id }}</td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.contact }}</td>
+                <td>{{ patient.email }}</td>
+                <td>{{patient.doctor}}</td>
+                <!-- Add other fields as needed -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

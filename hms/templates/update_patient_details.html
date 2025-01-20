@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Patient Details</title>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #66fcf1;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #66fcf1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #45a29e;
+        }
+
+        .details-container {
+            background-color: #1f2833;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <h2>Patient Details</h2>
+        <p><strong>Patient ID:</strong> {{ patient.p_id }}</p>
+        <p><strong>Name:</strong> {{ patient.name }}</p>
+        <p><strong>Age:</strong> {{ patient.age }}</p>
+        <p><strong>Contact:</strong> {{ patient.contact }}</p>
+        <p><strong>Email:</strong> {{ patient.email }}</p>
+        <p><strong>Address:</strong> {{ patient.address }}</p>
+        <p><strong>Disease:</strong> {{ patient.disease }}</p>
+        <p><strong>Treatment:</strong> {{ patient.treatment }}</p>
+        <p><strong>Doctor:</strong> {{ patient.doctor }}</p>
+        <a href="{% url 'update_patient' patient.p_id %}">Update Details</a>
+    </div>
+</body>
+</html>

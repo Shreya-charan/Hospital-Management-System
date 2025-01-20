@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #0b0c10;
+        color: #c5c6c7;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h2 {
+        color: #66fcf1;
+        margin-bottom: 20px;
+    }
+
+    form {
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: #1f2833;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #c5c6c7;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        background-color: #1f2833;
+        color: #c5c6c7;
+        border: 1px solid #66fcf1;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #45a29e;
+        color: #0b0c10;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #66fcf1;
+        color: #0b0c10;
+    }
+</style>
+
+<h2>Delete Department</h2>
+<p>Enter the Department ID to delete:</p>
+
+<!-- Form for entering the department id -->
+<form method="post" action="">
+    {% csrf_token %} <!-- Include the CSRF token here -->
+
+    <!-- Text input for id -->
+    <label for="id">Department ID:</label>
+    <input type="text" id="id" name="id" required>
+
+    <!-- Submit button -->
+    <button type="submit">Delete Department</button>
+</form>
+{% endblock %}

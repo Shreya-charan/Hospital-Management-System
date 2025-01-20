@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+    
+{% block content %}
+<style>
+    body {
+        background-color: #0b0c10;
+        color: #c5c6c7;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #66fcf1;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #c5c6c7;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        background-color: #1f2833;
+        color: #c5c6c7;
+        border: 1px solid #66fcf1;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #45a29e;
+        color: #0b0c10;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #66fcf1;
+        color: #0b0c10;
+    }
+</style>
+
+    <h2>Delete Patient</h2>
+    <p>Enter the Patient ID to delete:</p>
+
+    <!-- Form for entering the p_id -->
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <!-- Text input for p_id -->
+        <label for="p_id">Patient ID:</label>
+        <input type="text" id="p_id" name="p_id" required>
+
+        <!-- Submit button -->
+        <button type="submit">Delete Patient</button>
+    </form>
+{% endblock %}
